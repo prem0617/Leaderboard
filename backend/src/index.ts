@@ -12,7 +12,7 @@ const PORT = 3000;
 // ✅ Allow CORS from React frontend (default: http://localhost:5173)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://3winternship.vercel.app/"],
     credentials: true, // allow cookies/authorization headers
   })
 );
