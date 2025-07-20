@@ -1,2 +1,4 @@
 node_modules
 dist
+.env
+.env.*  # if you also want to ignore files like .env.local, .env.production
