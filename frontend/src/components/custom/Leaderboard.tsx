@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Trophy, Medal, Award, Crown, Star, TrendingUp } from "lucide-react";
+import {
+  Trophy,
+  Medal,
+  Award,
+  Crown,
+  Star,
+  TrendingUp,
+  HistoryIcon,
+} from "lucide-react";
 import axios from "axios";
 import { baseURL } from "../../config";
 import ClaimPoints from "./ClaimPoints";
 import Loading from "./Loading";
 import AddNewUser from "./AddNewUser";
 import { useSocketConnection } from "../../hooks/useSocketConnection";
+import { Link } from "react-router";
+import { Button } from "../ui/button";
 
 export interface User {
   _id: string;
@@ -169,7 +179,15 @@ const Leaderboard: React.FC = () => {
         <div className="bg-white rounded-2xl flex flex-col justify-center items-center shadow-sm border border-slate-200 p-8">
           <ClaimPoints users={users} />
 
-          <AddNewUser />
+          <div className="flex justify-center gap-4">
+            <AddNewUser />
+            <Link to={"history"}>
+              <Button className="cursor-pointer mt-6 py-2 px-6 bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-colors duration-200 flex items-center justify-center gap-2">
+                <HistoryIcon className="w-4 h-4" />
+                History
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Top 3 Podium */}
